@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Portugês</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="container">
+        <a href="../index.html">Pagina Inicial</a>
+
+        <h1>Jogo de Português</h1>
+    
+        <div id="pt-feedback" class="feedback"></div>
+    
+        <div id="pt-palavra" class="calculo"></div>
+    
+        <div id="pt-option" class="opcoes">
+          <div id="pt-div-a" onclick="responder(itemA, 'a')"><span id="pt-item-a"></span></div>
+          <div id="pt-div-b" onclick="responder(itemB, 'b')"><span id="pt-item-b"></span></div>
+          <div id="pt-div-c" onclick="responder(itemC, 'c')"><span id="pt-item-c"></span></div>
+          <div id="pt-div-d" onclick="responder(itemD, 'd')"><span id="pt-item-d"></span></div>
+        </div>
+    
+        <div class="botoes">
+          <button id="pt-pontuar" onclick="pontuar()">Responder</button>
+          <button id="pt-btn-init" onclick="inicio(0)">Iniciar</button>
+          <button id="pt-btn-pxm" onclick="inicio(0)">Próxima</button>
+          <button id="pt-btn-rnt" onclick="inicio(1)">Reiniciar</button>
+        </div>
+    
+        <div class="pontuacao-container">
+          <label for="pt-pontuacao">Pontuação:</label>
+          <input type="number" id="pt-pontuacao" value="0" readonly>
+        </div>
+      </main>
+    
+    <footer>&copy; 2025 - Dalecio dos Santos Moura</footer>
+    <script src="portugues.js"></script>
+</body>
+</html>

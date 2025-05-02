@@ -38,17 +38,13 @@ const URL_PONTUACOES  = 'http://localhost:3000/api/pontuacoes';
 const URL_PALAVRAS    = 'https://apijodgoeducativo.onrender.com/api/palavras';
 
 function inicio(param = 0){
-  divItemA.style.backgroundColor = 'transparent';
-  divItemB.style.backgroundColor = 'transparent';
-  divItemC.style.backgroundColor = 'transparent';
-  divItemD.style.backgroundColor = 'transparent';
-  stResp = false;
+  let st = param;
   if(param == 0){
     btnInit.style.display   = 'none';
     btnPxm.style.display    = 'block';
     btnRnt.style.display    = 'block';
     feedback.style.display  = 'block';
-    montarPergunta();
+    selecao(1);
   }else if(param == 1){
     btnInit.style.display     = 'block';
     btnPxm.style.display      = 'none';
@@ -59,9 +55,18 @@ function inicio(param = 0){
 
     let pontuacao   = document.getElementById('pt-pontuacao');
     pontuacao.value = 0;
+  } 
+}
+
+function selecao(selec){
+  divItemA.style.backgroundColor = 'transparent';
+  divItemB.style.backgroundColor = 'transparent';
+  divItemC.style.backgroundColor = 'transparent';
+  divItemD.style.backgroundColor = 'transparent';
+  stResp = false;
+  if(selec == 1){
+    montarPergunta();
   }
-  
-  
 }
 
  async function montarPergunta(){

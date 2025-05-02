@@ -35,7 +35,7 @@ const palavrasSelecinadas = [];
 const URL_PONTUACOES  = 'http://localhost:3000/api/pontuacoes';
 //const URL_PALAVRAS    = 'http://localhost:3000/api/palavras';
 
-const URL_PALAVRAS    = 'https://apicontroledematerial.onrender.com/api/palavras';
+const URL_PALAVRAS    = 'https://apijodgoeducativo.onrender.com/api/palavras';
 
 function inicio(param = 0){
   divItemA.style.backgroundColor = 'transparent';

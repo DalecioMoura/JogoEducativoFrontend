@@ -1,12 +1,12 @@
-let btnInit         = document.getElementById("mat-btn-init");
-let btnPxm          = document.getElementById("mat-btn-pxm");
-let btnRnt          = document.getElementById("mat-btn-rnt");
+let btnIniciar         = document.getElementById("mat-btn-init");
+let btnProximo          = document.getElementById("mat-btn-pxm");
+let btnReiniciar          = document.getElementById("mat-btn-rnt");
 let btnResponder    = document.getElementById("mat-pontuar");
 
 btnResponder.style.display  = 'none';
-btnInit.style.display       = 'block';
-btnPxm.style.display        = 'none';
-btnRnt.style.display        = 'none';
+btnIniciar.style.display       = 'block';
+btnProximo.style.display        = 'none';
+btnReiniciar.style.display        = 'none';
 
 let calc    = document.getElementById("mat-calc");
 let option  = document.getElementById("mat-option");
@@ -34,15 +34,15 @@ let stResp = false;
 function inicio(param = 0){
     let st= param;
     if(st == 0){
-        btnInit.style.display = 'none';
-        btnPxm.style.display = 'block';
-        btnRnt.style.display = 'block';
+        btnIniciar.style.display = 'none';
+        btnProximo.style.display = 'block';
+        btnReiniciar.style.display = 'block';
         feedback.style.display = 'block';
         selecao();
     }else if(st == 1){
-        btnInit.style.display = 'block';
-        btnPxm.style.display = 'none';
-        btnRnt.style.display = 'none';
+        btnIniciar.style.display = 'block';
+        btnProximo.style.display = 'none';
+        btnReiniciar.style.display = 'none';
         feedback.style.display = 'none';
         calc.style.display = 'none';
         option.style.display = 'none';
@@ -68,7 +68,8 @@ function selecao(){
     }else{
         divisao();
     }
-    feedback.textContent = 'Escolha uma resposta.'     
+    feedback.textContent = 'Escolha uma resposta.'
+    feedback.style.color = 'black';
 }
 
 function soma(){
@@ -80,24 +81,7 @@ function soma(){
     
     calc.innerHTML = n1 + " + " + n2;
 
-    montarPergunta(`${n1} + ${n2}`, (n1 + n2));
-    /*calc.style.display = 'block';
-
-    let opcoes = gerador();
-
-    itemA.textContent = opcoes[0];
-    itemB.textContent = opcoes[1];
-    itemC.textContent = opcoes[2];
-    itemD.textContent = opcoes[3];
-    
-    option.style.display = 'block';
-
-    console.log(n1 + " + " + n2);
-    console.log("Opções:");
-    console.log("Opção A: " + opcoes[0]);
-    console.log("Opção B: " + opcoes[1]);
-    console.log("Opção C: " + opcoes[2]);
-    console.log("Opção D: " + opcoes[3]);*/
+    selecionarPergunta(`${n1} + ${n2}`, (n1 + n2));
 }
 
 function subtracao(){
@@ -107,36 +91,13 @@ function subtracao(){
     let n2 = Math.floor(Math.random()*100)+1;
 
     if(n1 > n2){
-        /*console.log(n1 + " - " + n2);
-        calc.innerHTML = n1 + " - " + n2;
-        resultado = n1 - n2;*/
 
-        montarPergunta(`${n1} - ${n2}`, (n1 - n2));
+        selecionarPergunta(`${n1} - ${n2}`, (n1 - n2));
     }
     else{
-        /*console.log(n2 + " - " + n1);
-        calc.innerHTML = n2 + " - " + n1;
-        resultado = n2 - n1*/
 
-        montarPergunta(`${n2} - ${n1}`, (n2 - n1));
+        selecionarPergunta(`${n2} - ${n1}`, (n2 - n1));
     }
-
-    /*calc.style.display = 'block';
-
-    let opcoes = gerador();
-
-    itemA.textContent = opcoes[0];
-    itemB.textContent = opcoes[1];
-    itemC.textContent = opcoes[2];
-    itemD.textContent = opcoes[3];
-
-    option.style.display = 'block';
-    
-    console.log("Opções:");
-    console.log("Opção A: " + opcoes[0]);
-    console.log("Opção B: " + opcoes[1]);
-    console.log("Opção C: " + opcoes[2]);
-    console.log("Opção D: " + opcoes[3]);*/
 }
 
 function multiplicacao(){
@@ -144,29 +105,8 @@ function multiplicacao(){
     console.log("multiplicação")
     let n1 = Math.floor(Math.random()*100)+1;
     let n2 = Math.floor(Math.random()*10)+1;
-    /*resultado = n1 * n2;
-    
-    calc.innerHTML = n1 + " x " + n2;*/
 
-    montarPergunta(`${n1} x ${n2}`, (n1 * n2));
-    /*calc.style.display = 'block';
-
-    let opcoes = gerador();
-
-    itemA.textContent = opcoes[0];
-    itemB.textContent = opcoes[1];
-    itemC.textContent = opcoes[2];
-    itemD.textContent = opcoes[3];
-    
-    option.style.display = 'block';
-
-    console.log(n1 + " x " + n2);
-    console.log("Opções:");
-    console.log("Opção A: " + opcoes[0]);
-    console.log("Opção B: " + opcoes[1]);
-    console.log("Opção C: " + opcoes[2]);
-    console.log("Opção D: " + opcoes[3]);*/
-
+    selecionarPergunta(`${n1} x ${n2}`, (n1 * n2));
 }
 
 function divisao(){
@@ -174,14 +114,10 @@ function divisao(){
     console.log("divisão")
     let n1 = Math.floor(Math.random()*100)+1;
     let n2 = Math.floor(Math.random()*10)+1;
-    /*resultado = n1 / n2;
-    
-    calc.innerHTML = n1 + " : " + n2;*/
-
-    montarPergunta(`${n1} : ${n2}`, (n1 / n2));
+    selecionarPergunta(`${n1} : ${n2}`, (n1 / n2));
 }
 
-function montarPergunta(expressao, resultadoCalculado){
+function selecionarPergunta(expressao, resultadoCalculado){
 
     resultado = resultadoCalculado;
     
@@ -206,10 +142,10 @@ function montarPergunta(expressao, resultadoCalculado){
     console.log("Opção D: " + opcoes[3]);
 }
 
-function responder(vlr, tag){
+function selecionarResposta(vlr, tag){
     
     if(stResp == false){
-        feedback.style.display = 'none';
+        //feedback.style.display = 'none';
         btnResponder.style.display = 'block';
         switch(tag){
             case 'a':
@@ -241,7 +177,7 @@ function responder(vlr, tag){
     }
 }
 
-function pontuar(){
+function responder(){
     stResp = true;
     feedback.style.display = 'block';
     if(resposta == resultado){

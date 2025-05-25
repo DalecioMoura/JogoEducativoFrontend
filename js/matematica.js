@@ -114,7 +114,7 @@ function divisao(){
     console.log("divisão")
     let n1 = Math.floor(Math.random()*100)+1;
     let n2 = Math.floor(Math.random()*10)+1;
-    selecionarPergunta(`${n1} : ${n2}`, (n1 / n2));
+    selecionarPergunta(`${n1} : ${n2}`, (n1 / n2).toFixed(2));
 }
 
 function selecionarPergunta(expressao, resultadoCalculado){

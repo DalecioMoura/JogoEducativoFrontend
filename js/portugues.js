@@ -152,22 +152,6 @@ function selecao(){
     case 6://9:
       determinarClasseMorfologica();
     break;
-    /*case 10:
-      //determinarDerivação();
-      
-    break;
-    case 11:
-      //determinarSufixo();
-      
-    break;
-    case 12:
-      //determinarPrefixo();
-      
-    break;
-    case 13:
-      //determinarRadical();
-      
-    break;*/
   }                
 }
 

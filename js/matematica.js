@@ -127,10 +127,20 @@ function selecionarPergunta(expressao, resultadoCalculado){
 
     let opcoes = gerador();
 
-    itemA.textContent = opcoes[0];
-    itemB.textContent = opcoes[1];
-    itemC.textContent = opcoes[2];
-    itemD.textContent = opcoes[3];
+    console.log(Number.isInteger(resultado));
+
+    if(Number.isInteger(resultado)){
+        itemA.textContent = opcoes[0];
+        itemB.textContent = opcoes[1];
+        itemC.textContent = opcoes[2];
+        itemD.textContent = opcoes[3];
+    }
+    else{
+        itemA.textContent = opcoes[0].toFixed(2);
+        itemB.textContent = opcoes[1].toFixed(2);
+        itemC.textContent = opcoes[2].toFixed(2);
+        itemD.textContent = opcoes[3].toFixed(2);
+    }
     
     option.style.display = 'block';
 

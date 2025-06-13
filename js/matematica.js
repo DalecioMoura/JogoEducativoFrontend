@@ -180,6 +180,7 @@ function selecionarResposta(vlr, tag){
 function responder(){
     stResp = true;
     feedback.style.display = 'block';
+    console.log(`resposta: ${resposta}\nresultado: ${resultado}`);
     if(resposta == resultado){
         console.log("resposta correta");
         feedback.textContent = 'Sua resposta está correta!';

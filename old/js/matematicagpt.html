@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <title>Jogo de Matemática</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+    <main class="container">
+      <a href="../index.html">Pagina Inicial</a>
+
+      <h1>Jogo de Matemática</h1>
+
+      <div id="mat-feedback" class="feedback"></div>
+
+      <div id="mat-calc" class="calculo"></div>
+
+      <div id="mat-option" class="opcoes">
+        <div id="mat-div-a" onclick="selecionarResposta(itemA, 'a')"><span id="mat-item-a"></span></div>
+        <div id="mat-div-b" onclick="selecionarResposta(itemB, 'b')"><span id="mat-item-b"></span></div>
+        <div id="mat-div-c" onclick="selecionarResposta(itemC, 'c')"><span id="mat-item-c"></span></div>
+        <div id="mat-div-d" onclick="selecionarResposta(itemD, 'd')"><span id="mat-item-d"></span></div>
+      </div>
+
+      <button id="mat-pontuar" onclick="responder()">Responder</button>
+
+      <div class="botoes">
+        <button id="mat-btn-init" onclick="inicio(0)">Iniciar</button>
+        <button id="mat-btn-pxm" onclick="selecao()">Próxima</button>
+        <button id="mat-btn-rnt" onclick="inicio(1)">Reiniciar</button>
+      </div>
+
+      <div class="pontuacao-container">
+        <label for="mat-pontuacao">Pontuação:</label>
+        <input type="number" id="mat-pontuacao" value="0" readonly>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 - Dalecio dos Santos Moura</p>
+  </footer>
+
+    <script src="matematica.js"></script>
+  </body>
+</html>

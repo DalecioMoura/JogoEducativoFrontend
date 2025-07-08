@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jogo de Matemática</title>
+        <link rel="stylesheet" href="../../css/matematica_gemini.css">
+    </head>
+
+    <body>
+        <main class="container">
+            <a href="../../index.html">Pagina Inicial</a>
+            
+            <h1>Jogo de Matemática</h1>
+
+            <div id="mat-feedback" class="feedback"></div>
+                
+        <div id="mat-calc" class="calculo"></div>
+        
+            <div id="mat-option" class="option">
+                <div id="mat-div-a"> <span id="mat-item-a"></span></div>
+                <div id="mat-div-b"> <span id="mat-item-b"></span></div>
+                <div id="mat-div-c"> <span id="mat-item-c"></span></div>
+                <div id="mat-div-d"> <span id="mat-item-d"></span></div>
+            </div>
+
+            <div class="botoes">
+                <button id="mat-pontuar">Responder</button>    
+                <button id="mat-btn-init">Iniciar</button>
+                <button id="mat-btn-pxm">Próximo</button>
+                <button id="mat-btn-rnt">Reiniciar</button>
+        </div>
+
+            <div class="pontuacao-container">
+                <label for="mat-pontuacao"> Pontuação: 
+                    <input id="mat-pontuacao" type="number" value="0" name="pontuacao" readonly>
+                </label>
+            </div>
+        </main>
+    
+        <footer>
+            <p>&copy; 2025 - Dalecio dos Santos Moura</p>
+        </footer>
+        
+    </body>
+    <script type="module" src="matematica.js"></script>
+</html>

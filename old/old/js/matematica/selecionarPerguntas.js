@@ -11,7 +11,6 @@ function selecionarPergunta(expressao, resultadoCalculado){
     calc.style.display = 'block';
 
     let opcoes = [];
-    
     if(Array.isArray(resultadoCalculado)){
         resultado = `x1 = ${resultadoCalculado[0]} e x2 = ${resultadoCalculado[1]}`;
         const x1 = gerador(resultadoCalculado[0]);
@@ -22,12 +21,7 @@ function selecionarPergunta(expressao, resultadoCalculado){
         }
         console.log("opções de x1: " + x1)
         console.log('resultado calculado: '+resultado)
-        opcoes = [
-            [x1[0], x2[0]], 
-            [x1[1], x2[1]], 
-            [x1[2], x2[2]], 
-            [x1[3], x2[3]]
-        ];
+        opcoes = [[x1[0], x2[0]], [x1[1], x2[1]], [x1[2], x2[2]], [x1[3], x2[3]]];
 
         itemA.textContent = `x1 = ${opcoes[0][0]} e x2 = ${opcoes[0][1]}`;
         itemB.textContent = `x1 = ${opcoes[1][0]} e x2 = ${opcoes[1][1]}`;
@@ -43,7 +37,7 @@ function selecionarPergunta(expressao, resultadoCalculado){
         itemD.textContent = opcoes[3];
     }
 
-    option.style.display = 'grid';
+    option.style.display = 'block';
 
     console.log(expressao);
     console.log("Opções:");
@@ -53,8 +47,4 @@ function selecionarPergunta(expressao, resultadoCalculado){
     console.log("Opção D: " + opcoes[3]);
 }
 
-function getResultado() {
-    return resultado;
-}
-
-export {selecionarPergunta, getResultado};
+export {selecionarPergunta, resultado}

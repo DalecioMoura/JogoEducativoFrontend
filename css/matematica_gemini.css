@@ -3,51 +3,52 @@
 body {
     font-family: sans-serif;
     margin: 0px;
-    background-color: #f8f9fa; /* Um tom de cinza bem claro */
-    color: #343a40; /* Cinza escuro para o texto */
+    background-color: #f8f9fa;
+    color: #343a40;
     line-height: 1.6;
 }
 
 html, body {
-    height: 100%; /* Garante que o body ocupe toda a altura da viewport */
-    margin: 0; /* Remove as margens padrão do body */
+    height: 100%;
+    margin: 0;
     display: flex;
-    flex-direction: column; /* Organiza os filhos (header, main, footer) em coluna */
+    flex-direction: column;
 }
 
 main {
     max-width: 800px;
-    margin: 0px auto;
-    padding: 20px;
+    margin: 0 auto;
+    padding: 0 0px 5px;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    flex-grow: 1; /* Permite que o container cresça para ocupar o espaço restante */    
+    flex-grow: 1;
 }
 
 a {
     display: block;
     margin-bottom: 20px;
-    color: #007bff; /* Azul padrão para links */
+    color: #007bff;
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #0056b3; /* Azul mais escuro no hover */
+    color: #0056b3;
     text-decoration: underline;
 }
 
 h1 {
-    color: #28a745; /* Verde para o título principal */
-    margin-bottom: 10px;
+    color: #28a745;
+    margin-bottom: 0;
+    padding: 0 10px;
 }
 
 #mat-feedback {
     margin-top: 10px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     font-weight: bold;
     color: black;
@@ -70,21 +71,24 @@ h1 {
     font-weight: bold;
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #e9ecef; /* Cinza bem claro para o cálculo */
+    background-color: #e9ecef;
     border-radius: 5px;
 }
 
 .option {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin-bottom: 30px;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    margin-bottom: 20px;
 }
 
 .option div {
-    background-color: #007bff;
     color: black;
     padding: 10px;
+    border: 1px solid black;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -102,6 +106,12 @@ h1 {
     margin-left: 5px;
 }
 
+.botoes{
+    display: flex;
+    justify-content: center;
+    padding: 0 10px; 
+    margin-top: 30px;
+}
 button {
     padding: 12px 25px;
     border: none;
@@ -123,7 +133,8 @@ label {
     margin-right: 10px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 4px;
@@ -138,4 +149,207 @@ footer {
     background-color: #343a40;
     color: #fff;
     font-size: 0.9em;
+}
+
+.escolaridade {
+    margin: 15px 0;
+    font-size: 1.2em;
+    padding: 0 10px;
+}
+
+.top-menu {
+    display: flex;
+    align-items:end;
+    justify-content: space-between;
+    background-color: #007bff;
+    padding: 5px 10px 0px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.top-menu .home-icon img {
+    width: 32px;
+    height: 32px;
+    margin-right: 15px;
+    vertical-align: middle;
+    border-radius: 4px;
+    background-color: white;
+    padding: 2px;
+    transition: transform 0.2s ease;
+}
+
+.top-menu .home-icon:hover img {
+    transform: scale(1.1);
+}
+
+.home-icon i {
+    font-size: 24px;
+    color: white;
+    margin-right: 15px;
+    transition: transform 0.2s ease;
+}
+
+.home-icon i:hover {
+    transform: scale(1.2);
+    color: #dff0ff;
+}
+
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    transition: color 0.3s;
+}
+
+.menu-links li a:hover {
+    color: #dff0ff;
+}
+
+.modal {
+    max-width: 800px;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-left: 6px solid #007bff;
+    border-radius: 5px;
+    text-align: left;
+}
+
+.mat-progresso {
+    margin: 10px 0;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 0 10px;
+}
+
+.mat-barra {
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 5px 0;
+}
+
+.mat-barra .preenchido {
+    height: 100%;
+    background-color: #28a745;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+#parabens-container {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #fff3cd;
+    border: 2px solid #ffeeba;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+}
+
+#parabens-texto {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ff5722;
+    animation: piscar 1s infinite alternate;
+}
+
+@keyframes piscar {
+    from { opacity: 1; }
+    to { opacity: 0.2; }
+}
+
+#fogos-canvas {
+    width: 100%;
+    height: 50px;
+    display: block;
+    background-color: transparent;
+    pointer-events: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    animation: aparecerCanvas 0.6s ease-in-out;
+}
+
+@keyframes aparecerCanvas {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/*#btn-continuar {
+    margin-top: 20px;
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}*/
+
+.nivel-msg {
+    margin-top: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #17a2b8;
+    animation: fade 2s ease-in-out forwards;
+}
+
+@keyframes fade {
+    0% { opacity: 0; transform: translateY(-10px); }
+    20% { opacity: 1; transform: translateY(0); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
+
+.nivel-container {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #e2f0ff;
+    border: 2px solid #90caff;
+    padding: 5px;
+    border-radius: 12px;
+}
+
+.nivel-container h2 {
+    font-size: 22px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+#nivel-texto{
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+#btn-continuar-nivel, #btn-sair-nivel, #btn-continuar, #btn-sair {
+    margin: 10px;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+}
+
+#btn-continuar-nivel, #btn-continuar {
+    background-color: #28a745;
+}
+
+#btn-sair-nivel, #btn-sair {
+    background-color: #dc3545;
 }

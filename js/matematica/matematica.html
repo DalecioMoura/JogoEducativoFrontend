@@ -5,17 +5,68 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Jogo de Matemática</title>
         <link rel="stylesheet" href="../../css/matematica_gemini.css">
+        <script src="https://unpkg.com/lucide@latest"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     </head>
 
     <body>
         <main class="container">
-            <a href="../../index.html">Pagina Inicial</a>
-            
+
+            <section id="modal-sobre" class="modal" style="display: none;">
+                <button class="btn-fechar" data-fechar="modal-sobre">❌</button>
+                <h2>Sobre o Jogo</h2>
+                <p>Este é um jogo educativo para alunos do Ensino Fundamental. Ele trabalha operações matemáticas conforme o nível escolar.</p>
+            </section>
+
+            <section id="modal-ajuda" class="modal" style="display: none;">
+                <button class="btn-fechar" data-fechar="modal-ajuda">❌</button>
+                <h2>Ajuda</h2>
+                <p>Escolha a série, clique em "Iniciar", selecione a resposta correta e avance de nível! Boa sorte!</p>
+            </section>
+
+            <section id="modal-assuntos" class="modal" style="display: none;">
+                <button class="btn-fechar" data-fechar="modal-assuntos">❌</button>
+                <h2>Assuntos</h2>
+                <p>(Aqui futuramente você poderá escolher tópicos específicos, como só adição, subtração, etc.)</p>
+            </section>
+
+            <nav class="top-menu">
+                <a href="../../index.html" class="home-icon" title="Voltar à Página Inicial">
+                    <i class="fas fa-home"></i>
+                </a>
+                <ul class="menu-links">
+                    <li><a href="#" id="menu-sobre">Opções</a></li>
+                    <li><a href="#" id="menu-sobre">Sobre</a></li>
+                    <li><a href="#" id="menu-ajuda">Ajuda</a></li>
+                    <li><a href="#" id="menu-assuntos">Assuntos</a></li>
+                </ul>
+            </nav>
+
+
             <h1>Jogo de Matemática</h1>
 
-            <div id="mat-feedback" class="feedback"></div>
-                
-        <div id="mat-calc" class="calculo"></div>
+            <div id="mat-escolaridade" class="escolaridade">
+                <label for="mat-ano">Selecione o ano escolar:</label>
+                <select id="mat-ano">
+                    <option value="1">1º ano</option>
+                    <option value="2">2º ano</option>
+                    <option value="3">3º ano</option>
+                    <option value="4">4º ano</option>
+                    <option value="5">5º ano</option>
+                </select>
+            </div>
+
+            <div class="mat-progresso">
+                <div id="mat-serie-nivel">1º ano - Nível 1</div>
+                <div class="mat-barra">
+                    <div class="preenchido" style="width: 0%;"></div>
+                </div>
+                <div id="mat-pontos">0/10</div> 
+            </div>
+
+            <div id="mat-feedback" class="feedback"></div>               
+            <div id="mat-calc" class="calculo"></div>
         
             <div id="mat-option" class="option">
                 <div id="mat-div-a"> <span id="mat-item-a"></span></div>
@@ -29,19 +80,47 @@
                 <button id="mat-btn-init">Iniciar</button>
                 <button id="mat-btn-pxm">Próximo</button>
                 <button id="mat-btn-rnt">Reiniciar</button>
-        </div>
+            </div>
 
-            <div class="pontuacao-container">
+            <!--div class="pontuacao-container">
                 <label for="mat-pontuacao"> Pontuação: 
                     <input id="mat-pontuacao" type="number" value="0" name="pontuacao" readonly>
                 </label>
+            </div-->
+
+            <!-- NOVO: Mensagem ao mudar de nível -->
+            <div id="nivel-container" style="display: none;" class="nivel-container">
+                <h2 id="nivel-texto"></h2>
+                <button id="btn-continuar-nivel">Continuar</button>
+                <button id="btn-sair-nivel">Sair</button>
+            </div>
+
+            <div id="parabens-container" style="display: none;">
+                <canvas id="fogos-canvas"></canvas>
+                <h2 id="parabens-texto">🎉 Parabéns! Você passou de ano! 🎉</h2>
+                <button id="btn-continuar">Continuar</button>
+                <button id="btn-sair">Sair</button>
             </div>
         </main>
     
         <footer>
             <p>&copy; 2025 - Dalecio dos Santos Moura</p>
         </footer>
-        
-    </body>
+
+        <!--script type="module">
+            window.addEventListener('load', () => {
+                import('../fogos.js').then(({ iniciarFogos }) => {
+                    iniciarFogos();
+                });
+            });
+        </script-->
+
     <script type="module" src="matematica.js"></script>
+    </body>
+    
 </html>
+
+
+
+
+

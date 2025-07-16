@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Português</title>
+    <!--link rel="stylesheet" href="../css/style.css"-->
+    <link rel="stylesheet" href="../../css/portugues_gemini.css">
+</head>
+<body>
+    <main class="container">
+        <a href="../../index.html">Pagina Inicial</a>
+
+        <h1>Jogo de Português</h1>
+    
+        <h2 id="pt-feedback" class="feedback"></h2>
+
+        <h2 id="pt-questao"></h2>
+    
+        <div id="pt-palavra" class="class-palavra"></div>
+   
+        <div id="pt-option" class="opcoes">
+          <div id="pt-div-a" onclick="selecionarResposta(itemA, 'a')"><span id="pt-item-a"></span></div>
+          <div id="pt-div-b" onclick="selecionarResposta(itemB, 'b')"><span id="pt-item-b"></span></div>
+          <div id="pt-div-c" onclick="selecionarResposta(itemC, 'c')"><span id="pt-item-c"></span></div>
+          <div id="pt-div-d" onclick="selecionarResposta(itemD, 'd')"><span id="pt-item-d"></span></div>
+          
+        </div>
+
+        <input id="pt-resposta" type="text" placeholder="Responda aqui!">
+        
+        <select name="respostas-morfologia" id="pt-select-morfologia">
+          <option value="">Escolha uma resposta</option>
+          <option id="pt-op1" value="artigo">Artigo</option>
+          <option id="pt-op2" value="pronome">Pronome</option>
+          <option id="pt-op3" value="substantivo">Substantivo</option>   
+          <option id="pt-op4" value="verbo">Verbo</option>       
+          <option id="pt-op5" value="adjetivo">Adjetivo</option>
+          <option id="pt-op6" value="advérbio">Advérbio</option>
+          <option id="pt-op7" value="preposição">Preposição</option>
+          <option id="pt-op8" value="conjunção">Conjunção</option>
+          <option id="pt-op9" value="numeral">Numeral</option>
+          <option id="pt-op10" value="interjeição">Interjeição</option>
+        </select>
+
+        <select name="" id="pt-select-tonicidade">
+          <option value="">Escolha uma resposta</option>
+          <option id="pt-opTonicidade1" value="artigo">ditongo</option>
+          <option id="pt-opTonicidade2" value="artigo">tritongo</option>
+          <option id="pt-opTonicidade3" value="artigo">hiato</option>
+          <option id="pt-opTonicidade4" value="artigo">ditongo e hiato</option>
+          <option id="pt-opTonicidade5" value="artigo">tritongo e hiato</option>
+          <option id="pt-opTonicidade6" value="artigo">não há encontro vocálico</option>
+        </select>
+    
+        <div class="botoes">
+          <button id="pt-pontuar" onclick="responder()">Responder</button>
+          <button id="pt-btn-init" onclick="inicio(0)">Iniciar</button>
+          <button id="pt-btn-pxm" onclick="selecao(0)">Próxima</button>
+          <button id="pt-btn-rnt" onclick="inicio(1)">Reiniciar</button>
+        </div>
+    
+        <div class="pontuacao-container">
+          <label for="pt-pontuacao">Pontuação:</label>
+          <input type="number" id="pt-pontuacao" value="0" readonly>
+        </div>
+      </main>
+    
+    <footer>&copy; 2025 - Dalecio dos Santos Moura</footer>
+    <script src="./portugues.js"></script>
+</body>
+</html>

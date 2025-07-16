@@ -1,0 +1,56 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f1f1f1;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  background-color: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.barra-progresso {
+  width: 100%;
+  height: 25px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 15px 0;
+}
+
+.preenchido {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.botoes button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.botoes button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.botoes button:last-child {
+  background-color: #f44336;
+  color: white;
+}
+
+#pontuacao {
+  font-weight: bold;
+  font-size: 18px;
+}

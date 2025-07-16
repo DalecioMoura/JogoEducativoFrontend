@@ -1,33 +1,23 @@
 import { feedback, btnResponder } from "./matematica.js";
-import { getResultado } from "./selecionarPerguntas.js";
-import { getRespostaSelecionada, resetarRespostaSelecionada, setStResposta, getStResposta } from "./selecionarResposta.js";
-import { pontuar } from "../avancoNivel/progressoMatematica.js";
+import { resultado } from "./selecionarPerguntas.js";
+import { resposta } from "./selecionarResposta.js";
 
 export function responder(){
     let stResp = true;
     feedback.style.display = 'block';
-
-    const respostaSelecionada = getRespostaSelecionada();
-    const resultado = getResultado();
-
-    if(respostaSelecionada == resultado){
+    if(resposta == resultado){
         console.log("resposta correta");
         feedback.textContent = 'Sua resposta está correta!';
         feedback.style.color = 'green';
-        pontuar(true);
+        let pontuacao = document.getElementById('mat-pontuacao');
+        pontuacao.value = Number(pontuacao.value) + 1;
+        
     }        
     else{
         console.log("resposta errada!");
         feedback.textContent = 'Sua resposta está errada!';
         feedback.style.color = 'red';
-        pontuar(false);
     }
-
     btnResponder.style.display = 'none';
-
-    //resetarRespostaSelecionada();
-
-    setStResposta(true);
-
     return stResp;
 }

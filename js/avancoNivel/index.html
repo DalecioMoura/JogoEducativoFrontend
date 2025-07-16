@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jogo Educativo - Progresso</title>
+  <link rel="stylesheet" href="./css.css" />
+</head>
+<body>
+  <main>
+    <h1>Jogo Educativo</h1>
+    
+    <div id="progresso-container">
+      <div id="serie-info">Série: 1º ano - Nível 1</div>
+      <div class="barra-progresso">
+        <div class="preenchido" style="width: 0%;"></div>
+      </div>
+      <div id="pontuacao">Pontuação: 0/10 ⭐</div>
+
+      <div class="botoes">
+        <button onclick="responder(true)">✅ Acertar</button>
+        <button onclick="responder(false)">❌ Errar</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="./progressoMatematica.js"></script>
+</body>
+</html>

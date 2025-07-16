@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundo Adaptativo</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-size: cover; /* Garante que a imagem cubra toda a área */
+            background-position: center center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+            transition: background-image 0.5s ease-in-out; /* Transição suave ao mudar a imagem */
+        }
+
+        /* Imagem padrão para telas maiores (desktops) */
+        body {
+            background-image: url('imagens/fundo-desktop.jpg'); /* Caminho para sua imagem de desktop */
+        }
+
+        /* Media Query para Tablets (orientação paisagem e retrato) */
+        @media only screen and (min-width: 768px) and (max-width: 1024px) {
+            body {
+                background-image: url('imagens/fundo-tablet-paisagem.jpg'); /* Imagem para tablet em paisagem */
+            }
+        }
+
+        /* Media Query para Celulares (orientação paisagem) */
+        @media only screen and (min-width: 480px) and (max-width: 767px) and (orientation: landscape) {
+            body {
+                background-image: url('imagens/fundo-celular-paisagem.jpg'); /* Imagem para celular em paisagem */
+            }
+        }
+
+        /* Media Query para Celulares (orientação retrato) e Tablets (orientação retrato) */
+        @media only screen and (max-width: 767px) and (orientation: portrait),
+               only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            body {
+                background-image: url('imagens/fundo-celular-retrato.jpg'); /* Imagem para celular e tablet em retrato */
+            }
+        }
+
+        /* Se precisar de um controle mais fino com JavaScript (opcional) */
+        /* Exemplo: para lidar com redimensionamento ou orientação em tempo real */
+        /* Este JS sobrescreve o CSS se for executado */
+        /*
+        .content {
+            height: 200vh; // Apenas para ter conteúdo e poder rolar
+            color: white;
+            text-align: center;
+            padding-top: 50px;
+        }
+        */
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1>Seu Conteúdo Aqui</h1>
+        <p>Este é um exemplo de como o fundo se adapta.</p>
+        </div>
+
+    <script>
+        // Função para atualizar a imagem de fundo com base nas dimensões da tela
+        function updateBackground() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            let backgroundImage = '';
+
+            // Lógica para desktop (maior largura)
+            if (width >= 1025) {
+                backgroundImage = 'url("imagens/fundo-desktop.jpg")';
+            }
+            // Lógica para tablets (largura intermediária)
+            else if (width >= 768 && width <= 1024) {
+                if (width > height) { // Paisagem
+                    backgroundImage = 'url("imagens/fundo-tablet-paisagem.jpg")';
+                } else { // Retrato
+                    backgroundImage = 'url("imagens/fundo-celular-retrato.jpg")'; // Pode ser a mesma do celular retrato
+                }
+            }
+            // Lógica para celulares (menor largura)
+            else {
+                if (width > height) { // Paisagem (celular virado)
+                    backgroundImage = 'url("imagens/fundo-celular-paisagem.jpg")';
+                } else { // Retrato (celular em pé)
+                    backgroundImage = 'url("imagens/fundo-celular-retrato.jpg")';
+                }
+            }
+            document.body.style.backgroundImage = backgroundImage;
+        }
+
+        // Chama a função quando a página carrega
+        window.addEventListener('load', updateBackground);
+        // Chama a função quando a janela é redimensionada ou a orientação muda
+        window.addEventListener('resize', updateBackground);
+        // Evento para detectar mudança de orientação (específico para mobile)
+        window.addEventListener('orientationchange', updateBackground);
+
+        // Desative o JavaScript acima se quiser usar apenas o CSS para maior simplicidade e performance.
+        // O CSS com media queries é a abordagem recomendada para a maioria dos casos.
+    </script>
+</body>
+</html>

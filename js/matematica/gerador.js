@@ -1,29 +1,54 @@
-export function gerador(resultado){
+export function gerador(resultado) {
+    const correto = Number(resultado);
+    const corretoStr = correto.toString();
+    const digitos = corretoStr.length;
 
-    console.log('parametro recebido: '+ resultado);
+    const alternativas = new Set();
 
-    let lista = [];
+    while (alternativas.size < 3) {
+        let tentativaStr;
 
-    for(let i = -5; i<=5; i++){
-        if(i >= 0)
-            lista[i+5] = i+1 + Number(resultado);
-        else
-        lista[i+5] = i + Number(resultado);    
+        if (digitos === 1) {
+            // Varia de resultado ±1 até ±5
+            const variacao = Math.floor(Math.random() * 11) - 5; // -5 a +5
+            const tentativa = correto + variacao;
+
+            if (tentativa >= 0 && tentativa !== correto) {
+                tentativaStr = tentativa.toString();
+            }
+
+        } else if (digitos === 2) {
+            // Varia o primeiro dígito de ±1 a ±5
+            const d1 = parseInt(corretoStr[0]);
+            const d2 = corretoStr[1];
+
+            const variacao = Math.floor(Math.random() * 11) - 5;
+            const novoD1 = d1 + variacao;
+
+            if (novoD1 >= 1 && novoD1 <= 9) {
+                tentativaStr = `${novoD1}${d2}`;
+            }
+
+        } else {
+            // Varia o segundo dígito de 0 a 9
+            const digitosArray = corretoStr.split('');
+            const novoD2 = Math.floor(Math.random() * 10).toString();
+
+            if (novoD2 !== digitosArray[1]) {
+                digitosArray[1] = novoD2;
+                tentativaStr = digitosArray.join('');
+            }
+        }
+
+        const tentativa = Number(tentativaStr);
+
+        if (tentativaStr && tentativa !== correto && tentativaStr.length === digitos) {
+            alternativas.add(tentativa);
+        }
     }
 
-    let listaAleatoria = new Set();
-    while(listaAleatoria.size <3){
-        let n1 = Math.floor(Math.random()*11);
-        listaAleatoria.add(lista[n1]);
-    }
+    alternativas.add(correto);
+    console.log(alternativas)
 
-    listaAleatoria.add(Number(resultado))
-    let listaAux = Array.from(listaAleatoria);
-
-    let listaOpcoes = new Set();
-    while(listaOpcoes.size < 4){
-        let n1 = Math.floor(Math.random()*4);
-        listaOpcoes.add(listaAux[n1]);
-    }
-    return Array.from(listaOpcoes);
+    return Array.from(alternativas).sort(() => Math.random() - 0.5);
 }

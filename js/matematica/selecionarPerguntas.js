@@ -5,7 +5,6 @@ let resultado = null;
 function selecionarPergunta(expressao, resultadoCalculado){
 
     //resultado = resultadoCalculado;
-    console.log("selecionar pergunta");
     calc.innerHTML = expressao;
 
     calc.style.display = 'block';
@@ -15,12 +14,10 @@ function selecionarPergunta(expressao, resultadoCalculado){
     if(Array.isArray(resultadoCalculado)){
         resultado = `x1 = ${resultadoCalculado[0]} e x2 = ${resultadoCalculado[1]}`;
         const x1 = gerador(resultadoCalculado[0]);
-        console.log("opções de x1: " + x1)
         const x2 = [];
         for(let i = 0; i<4; i++){
             x2[i] = resultadoCalculado[1]-(resultadoCalculado[0]-x1[i]);
         }
-        console.log("opções de x1: " + x1)
         console.log('resultado calculado: '+resultado)
         opcoes = [
             [x1[0], x2[0]], 

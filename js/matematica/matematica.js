@@ -7,7 +7,7 @@ import { dividir } from "./divisao.js";
 import { elevarPotenciaDeDois, elevarPotenciaDeTres } from "./exponenciacao.js";
 import { selecionarResposta, getStResposta, setStResposta } from "./selecionarResposta.js";
 import { responder } from "./responder.js";
-import { carregarProgresso, limparProgresso } from "../avancoNivel/progressoMatematica.js";
+import { carregarProgresso, limparProgresso, getProgresso } from "../avancoNivel/progressoMatematica.js";
 
 let btnIniciar = document.getElementById("mat-btn-init");
 let btnProximo = document.getElementById("mat-btn-pxm");
@@ -41,10 +41,8 @@ option.style.display = "none";
 let lista = [];
 
 const operacoesPorAno = {
-  "1º ano": [1, 2, 3], // Ajuste para as séries 1º, 2º e etc, conforme seu progresso
-  "2º ano": [1, 2, 3, 4],
-  "3º ano": [1, 2, 3, 4, 5, 6],
-  "4º ano": [1, 2, 3, 4, 5, 6],
+  "3º ano": [1, 2, 3, 4],   // Ajuste para as séries 1º, 2º e etc, conforme seu progresso
+  "4º ano": [1, 2, 3, 4, 5],
   "5º ano": [1, 2, 3, 4, 5, 6],
 };
 
@@ -79,9 +77,11 @@ function selecao() {
   divItemC.style.backgroundColor = "transparent";
   divItemD.style.backgroundColor = "transparent";
 
-  let ano = selectAno.value || "1º ano";
+  let ano = selectAno[selectAno.selectedIndex].textContent || "3º ano";
+  console.log('ano: '+ ano)
   let operacoesDisponiveis = operacoesPorAno[ano];
-  if (!operacoesDisponiveis) operacoesDisponiveis = operacoesPorAno["1º ano"];
+  console.log('operações disponíveis: '+ operacoesDisponiveis);
+  if (!operacoesDisponiveis) operacoesDisponiveis = operacoesPorAno["3º ano"];
 
   let x = operacoesDisponiveis[Math.floor(Math.random() * operacoesDisponiveis.length)];
 
@@ -93,7 +93,7 @@ function selecao() {
   if (lista.length > operacoesDisponiveis.length) lista = [];
 
   if (mapOperacoes[x]) {
-    mapOperacoes[x]();
+    mapOperacoes[x](getProgresso().anoSelecionado, getProgresso().nivelAtual);
   }
 
   feedback.textContent = "Escolha uma resposta.";
@@ -101,6 +101,19 @@ function selecao() {
 
   //btnResponder.style.display = "block";
   //btnProximo.style.display = "none";
+}
+
+function reiniciar(){
+  localStorage.removeItem("progressoMatematica");
+  limparProgresso();
+  //carregarProgresso();
+  btnIniciar.style.display = "block";
+  btnProximo.style.display = "none";
+  btnReiniciar.style.display = "none";
+  calc.style.display = "none";
+  option.style.display = "none";
+  feedback.style.display = "none";
+  lista = [];
 }
 
 btnIniciar.onclick = () => { 
@@ -121,16 +134,8 @@ btnProximo.onclick = () => {
 };
 
 btnReiniciar.onclick = () => {
-  localStorage.removeItem("progressoMatematica");
-  limparProgresso();
-  //carregarProgresso();
-  btnIniciar.style.display = "block";
-  btnProximo.style.display = "none";
-  btnReiniciar.style.display = "none";
-  calc.style.display = "none";
-  option.style.display = "none";
-  feedback.style.display = "none";
-  lista = [];
+  console.log('Reiniciar');
+  reiniciar();
 };
 
 selectAno.onchange = () => {
@@ -160,5 +165,6 @@ export {
   option,
   btnResponder,
   btnProximo,
+  reiniciar,
   feedback,
 };

@@ -1,6 +1,6 @@
 import { selecionarPergunta } from "./selecionarPerguntas.js";
 
-export function dividir(){
+export function dividir(serie=1, nivel=1){
     
     console.log("divisão")
     let quociente = Math.floor(Math.random()*10000)+1;
